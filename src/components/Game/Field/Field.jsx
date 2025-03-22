@@ -1,4 +1,4 @@
-import styles from './FieldLayout.module.css';
+// import styles from './FieldLayout.module.css';
 import { useSelector } from 'react-redux';
 import { selectField, selectIsGameEnded } from '../../../selectors';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,11 @@ export const Field = () => {
 	const renderButtonsOfField = field?.map((element, index) => {
 		return (
 			<button
-				className={isGameEnded ? styles.buttonGameEnd : styles.button}
+				className={
+					isGameEnded
+						? 'w-24 h-24 border-2 flex-[0_0_calc(100%/3)] min-w-[calc(100%/3)] text-5xl bg-sky-500'
+						: 'w-24 h-24 border-2 flex-[0_0_calc(100%/3)] min-w-[calc(100%/3)] text-5xl '
+				}
 				key={index}
 				onClick={() => {
 					onClick(index);
@@ -32,7 +36,7 @@ export const Field = () => {
 
 	return (
 		<>
-			<div className={styles.buttonContainer}>{renderButtonsOfField}</div>
+			<div className="flex w-80 flex-wrap mx-auto ">{renderButtonsOfField}</div>
 		</>
 	);
 };

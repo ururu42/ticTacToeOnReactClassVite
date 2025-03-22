@@ -1,4 +1,4 @@
-import styles from './InformationLayout.module.css';
+// import styles from './InformationLayout.module.css';
 import { useSelector } from 'react-redux';
 import { selectIsGameEnded, selectIsDraw, selectCurrentPlayer } from '../../../selectors';
 import { useDispatch } from 'react-redux';
@@ -13,21 +13,21 @@ export const Information = () => {
 
 	const getStatusAboutGame = () => {
 		if (isDraw === true) {
-			return <p className={styles.info}>Ничья</p>;
+			return <p className="text-center text-5xl">Ничья</p>;
 		}
 		if (isDraw === false && isGameEnded === true) {
-			return <p className={styles.info}>Победа {currentPlayer}</p>;
+			return <p className="text-center text-5xl">Победа {currentPlayer}</p>;
 		}
 		if (isDraw === false && isGameEnded === false) {
-			return <p className={styles.info}>Ходит {currentPlayer}</p>;
+			return <p className="text-center text-5xl">Ходит {currentPlayer}</p>;
 		}
 	};
 	return (
 		<>
 			{getStatusAboutGame()}
-			<div className={styles.buttonContainer}>
+			<div className="flex">
 				<button
-					className={styles.buttonRestart}
+					className="w-24 h-14 mx-auto mt-8 rounded-lg text-lg bg-lime-100 mb-2"
 					onClick={() => {
 						dispatch(RESTART_GAME);
 					}}

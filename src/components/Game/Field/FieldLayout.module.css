@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .buttonContainer {
 	display: flex;
 	width: 300px;
